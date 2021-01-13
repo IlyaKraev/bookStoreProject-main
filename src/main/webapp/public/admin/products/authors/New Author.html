@@ -5,25 +5,68 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <title>BookStore</title>
-        <link rel="stylesheet" href="../../../assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
-        <link rel="stylesheet" href="../../../assets/fonts/font-awesome.min.css">
-        <link rel="stylesheet" href="../../../assets/fonts/ionicons.min.css">
-        <link rel="stylesheet" href="../../../assets/css/styles.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="../../../../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="../../../../static/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../../static/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="../../../../static/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+    <script src="../../../../static/js/jquery.min.js"></script>
+    <script src="../../../../static/bootstrap/js/bootstrap.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#addauthor").click(function (e) {
+
+                    var jsonData = {};
+                    var formData = $("#author").serializeArray();
+
+                    $.each(formData, function () {
+                        if (jsonData[this.name]) {
+                            if (!jsonData[this.name].push) {
+                                jsonData[this.name] = [jsonData[this.name]];
+                            }
+
+                            jsonData[this.name].push(this.value);
+                        } else {
+                            jsonData[this.name] = this.value;
+                        }
+                    });
+
+                    $.ajax({
+                        url: "http://localhost:8080/api/author/new",
+                        type: "POST",
+                        contentType: "application/json",
+                        // cors: true,
+                        dataType: "json",
+                        data: JSON.stringify(jsonData),
+                        success: function (jsonData) {
+                            alert("Author successfully added!");
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {}
+                    });
+                    e.preventDefault(); //STOP default action
+
+                });
+
+            });
+        </script>
+
+
     </head>
 
     <body>
         <nav class="navbar navbar-light navbar-expand-lg navigation-clean-button" style="background-color: rgb(183,183,183);">
-            <div class="container"><a class="navbar-brand" href="#"><img src="../../../assets/img/logo.png" style="height: auto;width: 50px;">Books &amp; Readables</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div
-                    class="collapse navbar-collapse" id="navcol-1">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img src="../../../assets/img/logo.png" style="height: auto;width: 50px;">Books &amp; Readables</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav mr-auto">
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
                         <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Explore</a>
                             <div class="dropdown-menu" role="menu" style="background-color: rgba(183,183,183,0.86);"><a class="dropdown-item" role="presentation" href="#"><strong>Free</strong></a><a class="dropdown-item" role="presentation" href="#"><strong>Category 1</strong></a><a class="dropdown-item" role="presentation" href="#"><strong>Category 2</strong></a>
-                                <a
-                                    class="dropdown-item" role="presentation" href="#"><strong>Category 3</strong></a>
+                                <a class="dropdown-item" role="presentation" href="#"><strong>Category 3</strong></a>
                             </div>
                         </li>
                         <li class="nav-item" role="presentation"></li>
@@ -36,8 +79,7 @@
         </nav>
         <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background-color: rgba(255,167,103,0.57);">
             <div class="container"><a class="navbar-brand" href="#">Admin Panel</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse"
-                     id="navcol-1">
+                <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item" role="presentation"><a class="nav-link" href="#">First Item</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" href="#">Second Item</a></li>
@@ -59,34 +101,37 @@
                             <div class="dropdown-menu" role="menu" style="background-color: rgb(217,192,174);"><a class="dropdown-item" role="presentation" href="#">View Existing</a><a class="dropdown-item" role="presentation" href="#">Add new</a><a class="dropdown-item" role="presentation" href="#">Update</a><a class="dropdown-item" role="presentation"
                                                                                                                                                                                                         href="#">Delete</a>
                                 <div class="dropdown-divider" role="presentation"></div><a class="dropdown-item" role="presentation" href="#"><strong>Categories</strong></a><a class="dropdown-item" role="presentation" href="#">View</a><a class="dropdown-item" role="presentation" href="#">Add</a>
-                                <div class="dropdown-divider"
-                                     role="presentation"></div><span class="dropdown-item-text" role="presentation"><strong>Language</strong></span><a class="dropdown-item" role="presentation" href="#">View</a><a class="dropdown-item" role="presentation" href="#">Add</a></div>
+                                <div class="dropdown-divider" role="presentation"></div><span class="dropdown-item-text" role="presentation"><strong>Language</strong></span><a class="dropdown-item" role="presentation" href="#">View</a><a class="dropdown-item" role="presentation" href="#">Add</a></div>
                         </li>
                         <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Publishers</a>
                             <div class="dropdown-menu" role="menu" style="background-color: #d9c0ae;"><a class="dropdown-item" role="presentation" href="#">View Existing</a><a class="dropdown-item" role="presentation" href="#">Add New</a><a class="dropdown-item" role="presentation" href="#">Update</a><a class="dropdown-item" role="presentation"
                                                                                                                                                                                                         href="#">Delete</a></div>
                         </li>
                         <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Authors</a>
-                            <div class="dropdown-menu" role="menu" style="background-color: #d9c0ae;"><a class="dropdown-item" role="presentation" href="#">View Existing</a><a class="dropdown-item" role="presentation" href="#">Add New</a><a class="dropdown-item" role="presentation" href="#">Update</a><a class="dropdown-item" role="presentation"
-                                                                                                                                                                                                        href="#">Delete</a></div>
+                            <div class="dropdown-menu" role="menu" style="background-color: #d9c0ae;"><a class="dropdown-item" role="presentation" href="View Authors.html">View Existing</a><a class="dropdown-item" role="presentation" href="#">Add New</a><a class="dropdown-item" role="presentation" href="#">Update</a><a class="dropdown-item"
+                                                                                                                                                                                                        role="presentation" href="#">Delete</a></div>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <div class="container">
-            <form id="contactForm" action="javascript:void();" method="get">
+            <form id="author">
                 <div class="form-row text-left" style="padding: 0px;">
                     <div class="col"></div>
                     <div class="col-md-6" id="message">
                         <fieldset>
                             <legend class="text-center" style="font-style: normal;font-weight: bold;font-size: 28px;">New Author</legend>
                         </fieldset>
-                        <div class="form-group has-feedback"><label for="from_name" style="font-size: 20px;">First Name</label><input class="form-control" type="text" id="firstName" tabindex="-1" name="firstName" required="true" style="font-size: 21px;"></div>
-                        <div class="form-group has-feedback"><label for="from_name" style="font-size: 20px;">Last Name</label><input class="form-control" type="text" id="lastName" tabindex="-1" name="lastName" required="true" style="font-size: 21px;"></div>
-                        <div class="form-group has-feedback"><label for="from_name" style="font-size: 20px;">Country</label><input class="form-control" type="text" id="country" tabindex="-1" name="country" required="true" style="font-size: 21px;"></div>
-                        <div class="form-group"><button class="btn btn-secondary btn-block" type="submit" style="background-color: rgb(52,160,255);">Add new author&nbsp;<i class="fa fa-chevron-circle-right"></i></button></div>
+                        <div class="form-group has-feedback"><label for="firstName" style="font-size: 20px;">First Name</label><input class="form-control" type="text" id="firstName" tabindex="-1" name="firstName" required="true" style="font-size: 21px;"></div>
+                        <div class="form-group has-feedback"><label for="lastNamee" style="font-size: 20px;">Last Name</label><input class="form-control" type="text" id="lastName" tabindex="-1" name="lastName" required="true" style="font-size: 21px;"></div>
+                        <div class="form-group has-feedback"><label for="country" style="font-size: 20px;">Country</label><input class="form-control" type="text" id="country" tabindex="-1" name="country" required="true" style="font-size: 21px;"></div>
+                        <div class="form-group">
+                            <input class="btn btn-secondary btn-block" type="submit" id="addauthor" value="Add new author">
+                        </div>
+                        <!-- <button class="btn btn-secondary btn-block" type="submit" style="background-color: rgb(52,160,255);">Add new author&nbsp;<i class="fa fa-chevron-circle-right"></i></button></div> -->
                         <hr>
+                        <p id="msg"></p>
                     </div>
                     <div class="col"></div>
                 </div>
@@ -121,16 +166,110 @@
                             </ul>
                         </div>
                         <div class="col item social"><a href="#" style="color: rgb(0,0,0);"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter" style="color: rgb(0,0,0);"></i></a><a href="#"><i class="icon ion-social-snapchat" style="color: rgb(0,0,0);"></i></a>
-                            <a
-                                href="#"><i class="icon ion-social-instagram" style="color: rgb(0,0,0);"></i></a>
+                            <a href="#"><i class="icon ion-social-instagram" style="color: rgb(0,0,0);"></i></a>
                         </div>
                     </div>
                     <p class="copyright"><strong>Books &amp; Readables © 2020</strong></p>
                 </div>
             </footer>
         </div>
-        <script src="../../../assets/js/jquery.min.js"></script>
-        <script src="../../../assets/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            // jQuery(document).ready(function() {
+
+
+            //     var jsonData = {};
+
+            //     var formData = $("#author").serializeArray();
+
+            //     $.each(formData, function() {
+
+            //         if (jsonData[this.name]) {
+
+            //             if (!jsonData[this.name].push) {
+
+            //                 jsonData[this.name] = [jsonData[this.name]];
+
+            //             }
+
+            //             jsonData[this.name].push(this.value);
+            //         } else {
+
+            //             jsonData[this.name] = this.value;
+
+            //         }
+
+            //     });
+
+            //     console.log(jsonData);
+
+
+            //     $('#author').bind("submit", GeneralPost);
+
+            //     function GeneralPost() {
+
+
+            //         $.ajax({
+            //             type: 'POST',
+            //             url: 'http://localhost:8080/api/author/new',
+            //             data: JSON.stringify(dataJSON),
+            //             contentType: 'application/json; charset=utf-8',
+            //             dataType: 'json'
+            //         });
+            //     }
+
+            //     jQuery('form#author').bind('submit', function(event) {
+            //         event.preventDefault();
+
+            //         function ConvertFormToJSON(form) {
+            //             var array = jQuery(form).serializeArray();
+            //             var json = {};
+
+            //             jQuery.each(array, function() {
+            //                 json[this.name] = this.value || '';
+            //             });
+
+            //             return json;
+            //         }
+
+            //         var form = this;
+            //         var json = ConvertFormToJSON(form);
+
+            //         $.ajax({
+            //             type: "POST",
+            //             contentType: "application/json; charset=utf-8",
+            //             url: "http://localhost:8080/api/author/new",
+            //             data: json,
+            //             dataType: "json",
+            //             success: function(result) {
+            //                 alert(data);
+            //             },
+            //             error: function(result) {
+            //                 alert("Error");
+            //             }
+            //         });
+            //         return true;
+            //     });
+            // });
+
+
+
+            // jQuery(document).on('ready', function() {
+            //     $("#author").submit(function(event) {
+            //         event.preventDefault(); //prevent default action 
+            //         // var post_url = $(this).attr("action"); //get form action url
+            //         var request_method = $(this).attr("method"); //get form GET/POST method
+            //         var json = $(this).serialize(); //Encode form elements for submission
+
+            //         $.ajax({
+            //             url: "http://localhost:8080/api/author/new",
+            //             type: request_method,
+            //             data: json
+            //         }).done(function(response) {
+            //             $("#msg").html(response);
+            //         });
+            //     });
+            // });
+        </script>
     </body>
 
 </html>
