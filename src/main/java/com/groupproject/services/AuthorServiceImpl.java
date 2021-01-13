@@ -17,7 +17,6 @@ public class AuthorServiceImpl implements IAuthorService{
     @Autowired
     private AuthorRepository authorRepository;
 
-
     @Override
     public List<Author> getAll() {
         return authorRepository.findAll();
@@ -27,7 +26,10 @@ public class AuthorServiceImpl implements IAuthorService{
     public Author getAuthorById(Long id) {
         return authorRepository.findById(id).orElse(null);
     }
-
+    
+    public List<Author> getAuthorByCountry() {
+        return authorRepository.findByCountry("Switzerland");
+    }
 
     @Override
     public boolean newAuthor(AuthorRequest request) {
@@ -38,6 +40,26 @@ public class AuthorServiceImpl implements IAuthorService{
         log.info("The author has been inserted to the DB");
         return true;
     }
+    
+//    @Override
+    public AuthorRequest updateAuthor(Long id,AuthorRequest request) {
+        log.info("Ready to update an existing account");
+        if (authorRepository.findById(id).isPresent()){
+            Author existingAuthor=authorRepository.findById(id).get();
+            existingAuthor.setFirstName(request.getFirstName());
+            existingAuthor.setLastName(request.getLastName());
+            existingAuthor.setCountry(request.getCountry());
+            Author updatedAuthor = authorRepository.save(existingAuthor);
+            log.info("The updated account is {}",updatedAuthor);
+            log.info("The updated account has been inserted to the DB");
+            return new AuthorRequest(updatedAuthor.getFirstName(), updatedAuthor.getLastName(),
+                    updatedAuthor.getCountry());
+        }
+        log.info("The account has not been inserted to the DB");
+        return null;
+    }
+    
+    
     //???
     @Override
     public boolean deleteAuthor(Long id) {
