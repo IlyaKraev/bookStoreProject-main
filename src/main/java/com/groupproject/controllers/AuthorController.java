@@ -44,15 +44,15 @@ public class AuthorController {
     }
 
     @PutMapping(value="/update/{id}",consumes = "application/json", produces = "application/json")
-        public Response updateExistingAuthor(@PathVariable(value = "id") Long id,
-                                              @RequestBody AuthorRequest request){
-            log.info("ready to update an author");
-            Author author = authorService.updateAuthor(id, request);
-            if (isNull(author)) {
-                return new Response("There is no such author");
-            }
-            return new Response("The author has been updated");
+    public Response updateExistingAuthor(@PathVariable(value = "id") Long id,
+                                         @RequestBody AuthorRequest request){
+        log.info("ready to update an author");
+        Author author = authorService.updateAuthor(id, request);
+        if (isNull(author)) {
+            return new Response("There is no such author");
         }
+        return new Response("The author has been updated");
+    }
 
     // delete account by id
     @DeleteMapping("/delete/{id}")
