@@ -14,6 +14,7 @@ import static java.util.Objects.isNull;
 
 @Slf4j
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping(value="/api/author")
 public class AuthorController {
 

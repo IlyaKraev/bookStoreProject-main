@@ -13,6 +13,7 @@ import static java.util.Objects.isNull;
 
 @Slf4j
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping(value="/api/role")
 public class RoleController {
     @Autowired
