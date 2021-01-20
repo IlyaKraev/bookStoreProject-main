@@ -1,16 +1,22 @@
 package com.groupproject.controllers;
 
-
 import com.groupproject.requests.BookRequest;
 import com.groupproject.responses.BookResponse;
 import com.groupproject.responses.Response;
 import com.groupproject.services.BookServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
-@CrossOrigin(origins = " * ", allowedHeaders = " * ")
+//@CrossOrigin(origins = " * ", allowedHeaders = " * ")
 @RestController
 @RequestMapping(value="/api/book")
 public class BookController {
@@ -37,6 +43,7 @@ public class BookController {
             produces = "application/json")
     public Response createNewBook(@RequestBody BookRequest request){
         log.info("Ready to create a new book");
+        log.info("The request is {}", request.toString());
         bookService.createNewBook(request);
         return new Response("The Book has been saved");
     }
