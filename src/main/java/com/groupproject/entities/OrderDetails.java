@@ -30,7 +30,6 @@ public class OrderDetails implements Serializable {
     @ToString.Exclude
     @ManyToOne
     @JoinColumn(name="book_id",referencedColumnName="book_id",nullable=false)
-    @JsonIgnore
     private Book book;
 
 //    @Column(name="price_after_discount")

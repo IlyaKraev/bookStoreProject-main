@@ -74,7 +74,7 @@ public class Book implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "language_id"))
     private Set<Language> languages;
 
-
+    @JsonIgnore
     @ToString.Exclude
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
     private Set<OrderDetails> orderDetails;

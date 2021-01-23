@@ -103,7 +103,7 @@ public class PurchaseHistoryServiceImpl implements IPurchaseHistoryService{
             Long accountId=purchaseHistoryRepository.findById(id).orElse(null).getAccount().getAccountId();
             Account account = accountRepository.findById(accountId).orElse(null);
             double minusCoins=purchaseHistoryRepository.findById(id).orElse(null).getPurchasedCoins();
-//            double eurosReturned=purchaseHistoryRepository.findById(id).orElse(null).getEurosSpent();
+//          double eurosReturned=purchaseHistoryRepository.findById(id).orElse(null).getEurosSpent();
             purchaseHistoryRepository.deleteById(id);
             log.info("Purchase has been deleted successfully");
             log.info("Updating account total coins");
