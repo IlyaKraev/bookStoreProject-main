@@ -1,13 +1,7 @@
 package com.groupproject.services;
 
-import com.groupproject.entities.Book;
-import com.groupproject.entities.Order;
-import com.groupproject.entities.OrderDetails;
-import com.groupproject.entities.Pricing;
-import com.groupproject.repository.BookRepository;
-import com.groupproject.repository.OrderDetailsRepository;
-import com.groupproject.repository.OrderRepository;
-import com.groupproject.repository.PricingRepository;
+import com.groupproject.entities.*;
+import com.groupproject.repository.*;
 import com.groupproject.requests.OrderDetailsRequest;
 
 import java.util.Date;
@@ -35,6 +29,8 @@ public class OrderDetailsServiceImpl implements IOrderDetailsService {
     private PricingRepository pricingRepository;
     @Autowired
     private OrderServiceImpl orderServiceImpl;
+    @Autowired
+    private AccountServiceImpl accountServiceImpl;
 
     @Override
     public List<OrderDetails> getAll() {
@@ -81,6 +77,18 @@ public class OrderDetailsServiceImpl implements IOrderDetailsService {
 
         log.info("Ready to insert a new OrderDetails");
         OrderDetails orderDetails = new OrderDetails(order, book, originalPrice, discountRate, totalPrice);
+        // check if the account coins are enough to buy the book
+        log.info("Checking if account coins are enough to buy the book");
+        if(totalPrice>order.getAccount().getCoins()){
+            double orderCoins=order.getTotalCoins();
+            log.info("Resetting original coins to account");
+            accountServiceImpl.updateAccount(order.getAccount().getAccountId(),order.getAccount().getCoins()+orderCoins);
+            log.info("Deleting all orderDetails");
+            orderDetailsRepository.deleteInBatch(getOrderDetailsByOrderId(orderId));
+            log.info("Deleting the order. It was invalid");
+            orderRepository.delete(order);
+            return false;
+        }
         OrderDetails newOrderDetails = orderDetailsRepository.save(orderDetails);
         log.info("The new orderDetails is {}", newOrderDetails);
         log.info("The orderDetails have been inserted to the DB");

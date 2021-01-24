@@ -50,7 +50,10 @@ public class OrderDetailsController {
     public Response createNewOrderDetails(@RequestBody OrderDetailsRequest request) {
 
         log.info("Ready to create a new OrderDetail");
-        orderDetailsServiceImpl.createOrderDetails(request);
+        boolean result=orderDetailsServiceImpl.createOrderDetails(request);
+        if(result==false){
+            return new Response("Not enough coins to place the order");
+        }
         return new Response("The OrderDetails have been saved");
     }
 
