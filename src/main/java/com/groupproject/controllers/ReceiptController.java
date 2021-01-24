@@ -12,7 +12,7 @@ import static java.util.Objects.isNull;
 @CrossOrigin(origins = " * ", allowedHeaders = " * ")
 @RestController
 @RequestMapping(value="/api/receipt")
-public class Receipt {
+public class ReceiptController {
 
     @Autowired
     private ReceiptImpl receipt;
@@ -24,7 +24,7 @@ public class Receipt {
             log.info("There is no order with this id {}",orderId);
             return new ReceiptResponse("There is no order with this id",receipt.getReceiptByOrderId(orderId));
         }else {
-            log.info("The Receipt of the order with id {}",orderId);
+            log.info("The ReceiptController of the order with id {}",orderId);
             return new ReceiptResponse("The receipt of this order is:",receipt.getReceiptByOrderId(orderId));
         }
     }

@@ -29,7 +29,7 @@ public class ReceiptImpl implements IReceiptService{
 
     @Override
     public Receipt getReceiptByOrderId(Long orderId) {
-        log.info("Ready to create a new Receipt for the client");
+        log.info("Ready to create a new ReceiptController for the client");
         List<OrderDetails> orderDetails=orderDetailsRepository.findByOrder_OrderId(orderId);
         log.info("Taking all the fields we want to show from the order");
         Order order=orderRepository.findById(orderId).orElse(null);
