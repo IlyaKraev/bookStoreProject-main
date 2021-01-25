@@ -1,4 +1,4 @@
-THe user interface of the book store. 
+The user interface for the book store. 
 
 Left to do:
 
