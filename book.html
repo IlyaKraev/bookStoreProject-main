@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>View book</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="/assets/js/checkforuser.js"></script>
+
+</head>
+
+<body class="bookpage">
+    <nav class="navbar navbar-light navbar-expand-lg navigation-clean-button"
+        style="background-color: rgb(183,183,183);">
+        <div class="container-fluid"><a class="navbar-brand" href="index.html">
+                <img src="assets/img/logo.png" style="height: auto;width: 50px;">Books &amp; Readables</a>
+            <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                            aria-expanded="false" href="#">Explore</a>
+                        <div class="dropdown-menu" role="menu" style="background-color: rgba(183,183,183,0.86);"><a
+                                class="dropdown-item" role="presentation" href="view.html?allbooks"><strong>All books</strong></a><a
+                                class="dropdown-item" role="presentation" href="explore.html"><strong>Filter</strong></a>
+                        </div>
+                    </li>
+                    <li class="nav-item" role="presentation"></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+
+
+                <form class="form-inline mr-auto" name="">
+                    <div class="form-group"><label for="search-field"><button type="submit" id="go-min" href=""
+                                class="btn btn-default" style="background-color: rgb(255,167,103)"><i
+                                    class="fa fa-search"
+                                    style="color: rgb(0,0,0);padding: 6px;"></i></button></label><input
+                            class="form-control search-field" type="search" id="search-min" name="search"></div>
+                </form>
+
+                <span class="navbar-text actions"> <a class="login" id="loginBox" href="login.html">Log In</a>
+                    <a class="btn btn-light action-button" id="signupBox" role="button" href="register.html"
+                        style="background-color: rgb(255,167,103);">Sign Up</a>
+                </span>
+
+                <span class="navbar-text actions"></span>
+                <div id="showUsr" style="font-weight: bold; overflow: hidden"></div>
+                <br />
+                <div id="userinfo" class="ml-5"></div>
+                <div id="special"></div>
+                <button class="btn btn-danger ml-2" id="logout"> Log Out</button>
+                </span>
+            </div>
+        </div>
+    </nav>
+    <div class="article-dual-column">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <h1 class="text-justify" id="title" style="margin-top: 20px; margin-bottom: 20px"></h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 col-lg-4 col-xl-4 offset-md-1" style="margin-left: 10px"><img class="img-fluid"
+                        id="cover" src="assets/img/loading.gif" style="width: 100%;">
+                    <h3 id="price" style="margin: 0px 0px 10px;margin-top: 20px;">Price:&nbsp;&nbsp;</h3>
+                    <h2 id="rating" style="margin: 0px 0px 10px;margin-top: 20px;">Rating:&nbsp;&nbsp;</h2>
+                    <button class="btn btn-secondary" type="button" id="buybook"
+                        style="width: 100%;margin-bottom: 20px;background-color: #ffa767;">Buy</button>
+
+                </div>
+                <div class="col-md-10 col-lg-7 offset-md-1 offset-lg-0" style="padding:30px">
+                    <div class="text">
+                        <h6 id="authors" style="height: 42px;">Author:&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+                        <h6 id="publisher" style="height: auto;">Publisher:&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+                        <h6 id="publicationDate">Year published:&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+                        <h6 id="languages">Languages:&nbsp;&nbsp;</h6>
+                        <h6 id="categories">Categories:&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+                        <hr>
+                        <h6 id="isbn13">ISBN13:&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+                        <h6 id="pages">Pages:&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+                        <h2 style="margin-top: 100px;">Description:</h2>
+                        <p id="description"></p>
+                        <figure class="figure"></figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-dark" style="background-color: rgb(183,183,183);color: rgb(0,0,0);">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-lg-4 item">
+                        <h3>Shop</h3>
+                        <ul>
+                            <li></li>
+                            <li><a href="explore.html">Explore books</a></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-4 item">
+                        <h3>Payment</h3>
+                        <ul>
+                            <li><a href="methodsofpayment.html">Methods of Payment&nbsp;</a></li>
+                            <li><a href="tokensystem.html">How our credit system works</a></li>
+                            <li><a href="buytokens.html">Fill up my wallet</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-4 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="team.html">Team</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="copyright"><strong>Books &amp; Readables © 2020</strong></p>
+            </div>
+        </footer>
+    </div>
+    <script src="https://brainfoolong.github.io/form-data-json/lib/form-data-json.min.js"></script>
+
+    <script src="assets/js/search.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bookpage.js"></script>
+    <script src="../../assets/js/dateformat.js"></script>
+</body>
+
+</html>

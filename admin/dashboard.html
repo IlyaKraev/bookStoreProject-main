@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>BookStore</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/checkforuser.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg navigation-clean-button"
+        style="background-color: rgb(183,183,183);">
+        <div class="container-fluid"><a class="navbar-brand" href="../index.html"><img src="../assets/img/logo.png"
+                    style="height: auto;width: 50px;">Books &amp; Readables</a><button data-toggle="collapse"
+                class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                            aria-expanded="false" href="#">Explore</a>
+                        <div class="dropdown-menu" role="menu" style="background-color: rgba(183,183,183,0.86);"><a
+                                class="dropdown-item" role="presentation" href="../view.html?allbooks"><strong>All
+                                    books</strong></a><a class="dropdown-item" role="presentation"
+                                href="../explore.html"><strong>Filter</strong></a>
+                        </div>
+                    </li>
+                    <li class="nav-item" role="presentation"></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="../contact.html">Contact Us</a>
+                    </li>
+                </ul>
+
+                <span class="navbar-text actions"> <a class="login" id="loginBox" href="../../login.html">Log In</a><a
+                        class="btn btn-light action-button" id="signupBox" role="button" href="../../register.html"
+                        style="background-color: rgb(255,167,103);">Sign Up</a></span>
+                <div id="userinfo" class="ml-5"></div>
+                <button class="btn btn-danger ml-2" style="float: right" id="logout"> Log
+                    Out</button>
+            </div>
+        </div>
+    </nav>
+    <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <i class="fa fa-user-circle" aria-hidden="true"
+                        style="float: left; position: relative; top: 7px; right: 5px"></i>
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p> Here you can see your profile info</p>
+                    <p id="walletcoins"></p>
+                    <p><a href="../user/userpage.html">View your account <i class="fa fa-gear"></i></a></p>
+                    <p><a href="../moneytocoins.html">Recharge your coins!</a></p>
+                    <p><a href="../user/purchasehistory.html">Purchase history</a></p>
+                </div>
+                <div style="text-align: center">
+                    <p><a href="dashboard.html"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;Press here to see the
+                            admin dashboard</a></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <div class="container" style="margin-top: 40px;margin-bottom: 40px;">
+        <div class="row">
+            <div class="col m-auto"><img class="float-none center" style="height: 250px;margin-top: auto;"
+                    src="../assets/img/admin.png"></div>
+            <div class="col-12 col-lg-6">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h3 class="text-center">Admin Dashboard</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-center"><strong>Manage the store</strong></p>
+                            </div>
+                        </div>
+                        <hr style="background-color: #323232;">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card shadow mb-3">
+                                    <div class="card-body">
+                                        <div class="col"><button class="btn btn-primary" type="button"
+                                                onclick="window.location.href='users/viewaccounts.html'"
+                                                style="width: 100%;">Manage&nbsp; Accounts&nbsp;<i
+                                                    class="fa fa-gear"></i></button></div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col"><button class="btn btn-primary" type="button"
+                                                onclick="window.location.href='viewpurchasehistory.html'"
+                                                style="width: 100%;">Manage Purchase Histories&nbsp;<i
+                                                    class="fa fa-gear"></i></button></div>
+                                    </div>                                    <div class="card-body">
+                                        <div class="col"><button class="btn btn-primary" type="button"
+                                                onclick="window.location.href='orders/vieworders.html'"
+                                                style="width: 100%;">Manage Orders&nbsp;<i
+                                                    class="fa fa-gear"></i></button></div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="col"><button class="btn btn-primary" type="button"
+                                                onclick="window.location.href='pricing/viewpricings.html'"
+                                                style="width: 100%;">Manage Pricings&nbsp;<i
+                                                    class="fa fa-gear"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center"><strong>Manage the inventory</strong></p>
+                                    </div>
+                                </div>
+                                <hr style="background-color: #323232;">
+                                <div class="card shadow mb-3">
+                                    <div class="card-body">
+                                        <div class="col"><button class="btn btn-primary" type="button"
+                                                onclick="window.location.href='products/books/viewbooks.html'"
+                                                style="width: 100%;">Manage&nbsp; Books&nbsp;<i
+                                                    class="fa fa-gear"></i></button></div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col"><button class="btn btn-primary" type="button"
+                                                onclick="window.location.href='products/authors/viewauthors.html'"
+                                                style="width: 100%;">Manage&nbsp; Authors&nbsp;<i
+                                                    class="fa fa-gear"></i></button></div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col"><button class="btn btn-primary" type="button"
+                                                onclick="window.location.href='products/publishers/viewpublishers.html'"
+                                                style="width: 100%;">Manage&nbsp; Publishers&nbsp;<i
+                                                    class="fa fa-gear"></i></button></div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col"><button class="btn btn-primary" type="button"
+                                                onclick="window.location.href='products/books/viewcategories.html'"
+                                                style="width: 100%;">Manage Categories&nbsp;<i
+                                                    class="fa fa-gear"></i></button></div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col"><button class="btn btn-primary" type="button"
+                                                onclick="window.location.href='products/books/viewlanguages.html'"
+                                                style="width: 100%;">Manage Languages&nbsp;<i
+                                                    class="fa fa-gear"></i></button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow mt-3"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-dark" style="background-color: rgb(183,183,183);color: rgb(0,0,0);">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-lg-4 item">
+                        <h3>Shop</h3>
+                        <ul>
+                            <li></li>
+                            <li><a href="../../explore.html">Explore books</a></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-4 item">
+                        <h3>Payment</h3>
+                        <ul>
+                            <li><a href="../../methodsofpayment.html">Methods of Payment&nbsp;</a></li>
+                            <li><a href="../../tokensystem.html">How our credit system works</a></li>
+                            <li><a href="../../buytokens.html">Fill up my wallet</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-4 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="../../team.html">Team</a></li>
+                            <li><a href="../../contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="copyright"><strong>Books &amp; Readables © 2020</strong></p>
+            </div>
+        </footer>
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/script.min.js"></script>
+
+</body>
+
+</html>
