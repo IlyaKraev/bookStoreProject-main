@@ -12,5 +12,4 @@ Left to do:
 8. User UI for orders made by user
 9. 
 
-
-![foxdemo](http://gph.is/1K7BG9F)
+<img src="http://gph.is/1K7BG9F" width="500">
