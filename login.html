@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Login</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/assets/js/login.js"></script>
+    <script src="/assets/js/checkforuser.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg navigation-clean-button"
+        style="background-color: rgb(183,183,183);">
+        <div class="container-fluid"><a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"
+                    style="height: auto;width: 50px;">Books &amp; Readables</a><button data-toggle="collapse"
+                class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                            aria-expanded="false" href="#">Explore</a>
+                        <div class="dropdown-menu" role="menu" style="background-color: rgba(183,183,183,0.86);"><a
+                                class="dropdown-item" role="presentation" href="#"><strong>Free</strong></a><a
+                                class="dropdown-item" role="presentation" href="#"><strong>Category 1</strong></a><a
+                                class="dropdown-item" role="presentation" href="#"><strong>Category 2</strong></a>
+                            <a class="dropdown-item" role="presentation" href="#"><strong>Category 3</strong></a>
+                        </div>
+                    </li>
+                    <li class="nav-item" role="presentation"></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Contact Us</a></li>
+                </ul>
+                <form class="form-inline mr-auto" name="">
+                    <div class="form-group"><label for="search-field"><button type="submit" id="go-min" href=""
+                                class="btn btn-default" style="background-color: rgb(255,167,103)"><i
+                                    class="fa fa-search"
+                                    style="color: rgb(0,0,0);padding: 6px;"></i></button></label><input
+                            class="form-control search-field" type="search" id="search-min" name="search"></div>
+                </form><span class="navbar-text actions"> <a class="login" id="loginBox" href="login.html">Log In</a><a
+                        class="btn btn-light action-button" id="signupBox" role="button" href="register.html"
+                        style="background-color: rgb(255,167,103);">Sign Up</a></span>
+            </div>
+
+            <div id="showUsr"></div>
+            <br />
+            <div id="userinfo" class="ml-5"></div>
+            <div id="special"></div>
+            <button class="btn btn-danger ml-2" id="logout"> Log
+                Out</button>
+        </div>
+    </nav>
+    <div class="container h-100 pt-5" style="min-height: 650px">
+        <div class="row align-items-center h-100">
+            <div class="col-6 mx-auto">
+                <form action="/" method="post" id="userForm" name="userForm">
+                    <div class="form-group text-center mb-2">
+                        <h2 class="mb-0"><i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;Log In</h2>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="input-icon">
+                            <i data-feather="user"></i>
+                            <input required="required" type="text" class="form-control" placeholder="Username"
+                                id="username" name="username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-icon">
+                            <i data-feather="lock"></i>
+                            <input required="required" type="password" class="form-control" placeholder="Password"
+                                id="password" name="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-secondary btn-block" type="submit" id="loginBtn" value="Log in">
+                        <div class="form-group text-center mb-2">Don't have an account? <a
+                                href="register.html">Register here!</a></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-dark" style="background-color: rgb(183,183,183);color: rgb(0,0,0);">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-lg-4 item">
+                        <h3>Shop</h3>
+                        <ul>
+                            <li></li>
+                            <li><a href="explore.html">Explore books</a></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-4 item">
+                        <h3>Payment</h3>
+                        <ul>
+                            <li><a href="methodsofpayment.html">Methods of Payment&nbsp;</a></li>
+                            <li><a href="tokensystem.html">How our credit system works</a></li>
+                            <li><a href="buytokens.html">Fill up my wallet</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-4 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="team.html">Team</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="copyright"><strong>Books &amp; Readables © 2020</strong></p>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../../../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/api.js"></script>
+</body>
+
+</html>

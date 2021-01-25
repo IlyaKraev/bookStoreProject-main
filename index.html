@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Books & Readables</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/checkforuser.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg navigation-clean-button"
+        style="background-color: rgb(183,183,183);">
+        <div class="container-fluid"><a class="navbar-brand" href="index.html"><img src="assets/img/logo.png"
+                    style="height: auto;width: 50px;">Books &amp; Readables</a><button data-toggle="collapse"
+                class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                            aria-expanded="false" href="#">Explore</a>
+                        <div class="dropdown-menu" role="menu" style="background-color: rgba(183,183,183,0.86);"><a
+                                class="dropdown-item" role="presentation" href="view.html?allbooks"><strong>All books</strong></a><a
+                                class="dropdown-item" role="presentation" href="explore.html"><strong>Filter</strong></a>
+                        </div>
+                    </li>
+                    <li class="nav-item" role="presentation"></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+                <form class="text-center" name="">
+                    <div class="form-inline mr-auto">
+                        <label for="search-field">
+                            <button type="submit" id="go-min" href="" class="btn btn-default" style="background-color: rgb(255,167,103)">
+                                <i class="fa fa-search" style="color: rgb(0,0,0);padding: 6px;"></i>
+                            </button>
+                            <input class="form-control search-field" type="search" id="search-min" name="search">
+                        </label>
+                    </div>
+                </form>
+                <span class="navbar-text actions" style="margin-left: 10px;"> <a class="login" id="loginBox" href="login.html">Log In</a><a
+                        class="btn btn-light action-button" id="signupBox" role="button" href="register.html"
+                        style="background-color: rgb(255,167,103);">Sign Up</a></span>
+                <!-- <div id="showUsr"></div>
+                            <br /> -->
+                <div id="userinfo" class="ml-5"></div>
+                <button class="btn btn-danger ml-2" style="float: right" id="logout"> Log
+                    Out</button>
+            </div>
+        </div>
+    </nav>
+    <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fa fa-user-circle" aria-hidden="true" style="float: left; position: relative; top: 7px; right: 5px"></i><h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p> Here you can see your profile info</p>
+                <p id="walletcoins"></p>
+                <p><a href="user/userpage.html">View your account <i class="fa fa-gear"></i></a></p>
+                <p><a href="moneytocoins.html">Recharge your coins!</a></p>
+                <p><a href="user/purchasehistory.html">Purchase history</a></p>
+            </div>
+            <div id="special" style="text-align: center"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <section id="carousel">
+        <div class="carousel slide" data-ride="carousel" id="carousel-1">
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item">
+                    <div class="jumbotron pulse animated hero-nature carousel-hero"
+                        style="background-image: url(&quot;assets/img/img4.jpg&quot;);">
+                        <h1 class="hero-title">Manga!</h1>
+                        <p class="hero-subtitle" style="background-color: rgba(255,255,255,0.6);color: rgb(0,0,0);">
+                            <strong>Konichiwa, amirite?!</strong>
+                        </p>
+                        <p><a class="btn btn-secondary hero-button plat" role="button" href="#"
+                                style="background-color: rgb(255,167,103);">Learn more</a></p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="jumbotron pulse animated hero-photography carousel-hero"
+                        style="background-image: url(&quot;assets/img/img2.jpg&quot;);">
+                        <h1 class="hero-title">Free Books!</h1>
+                        <p class="hero-subtitle" style="color: rgb(0,0,0);background-color: rgba(255,255,255,0.6);">
+                            <strong>Don't want to pay? No worries! We have free ones as well!</strong>
+                        </p>
+                        <p><a class="btn btn-secondary hero-button plat" role="button" href="#"
+                                style="background-color: rgb(255,167,103);">Learn more</a></p>
+                    </div>
+                </div>
+                <div class="carousel-item active">
+                    <div class="jumbotron pulse animated hero-technology carousel-hero"
+                        style="background-image: url(&quot;assets/img/img1.jpg&quot;);">
+                        <h1 class="hero-title">Books!</h1>
+                        <p class="hero-subtitle" style="color: rgb(0,0,0);background-color: rgba(255,255,255,0.6);">
+                            <strong>Pay for books and read them!</strong>
+                        </p>
+                        <p><a class="btn btn-secondary hero-button plat" role="button" href="#"
+                                style="background-color: rgb(255,167,103);">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><i
+                        class="fa fa-chevron-left"></i><span class="sr-only">Previous</span></a><a
+                    class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><i
+                        class="fa fa-chevron-right"></i><span class="sr-only">Next</span></a></div>
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-1" data-slide-to="0"></li>
+                <li data-target="#carousel-1" data-slide-to="1"></li>
+                <li data-target="#carousel-1" data-slide-to="2" class="active"></li>
+            </ol>
+        </div>
+    </section>
+    <div style="margin: 15px;padding: 10px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-5 col-xl-5"><img class="img-fluid center" src="assets/img/img3.jpg"
+                        style="padding: 19px;margin: 14px;"></div>
+                <div class="col-md-12 col-lg-6" style="margin: 10px;padding: 10px;">
+                    <p>Books &amp; redables is a new, exclusively online, bookstore that values free speech and
+                        features
+                        books of all kinds, from all sorts of authors. We have a wide selection of e-books from all
+                        categories, on all topics and even feature
+                        some free ones. Additionally, we have a wide selection of comic books and eastern manga.</p>
+                    <p>You can test out our platform by getting and reading some of our free selections. To get
+                        access
+                        to the entirety of our digital library and freely download our content you would need to
+                        <strong>login </strong>or <strong>register </strong>and<strong> fill up your digital wallet
+                            with
+                            credits</strong>.&nbsp;
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="article-list">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Latest Arrivals</h2>
+            </div>
+            <div class="row articles">
+                <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid"
+                            src="assets/img/81PzYVspVxL._AC_UL200_SR200,200_.jpg"></a>
+                    <h3 class="name"><strong>Rebuilding Milo: The Lifter's Guide to Fixing Common Injuries and
+                            Building
+                            a Strong Foundation for Enhancing Performance</strong><br></h3>
+                    <p class="description">Dr. Aaron Horschig<br></p><a class="action" href="#"><i
+                            class="fa fa-arrow-circle-right"></i></a>
+                </div>
+                <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid"
+                            src="assets/img/818gFJi90mL._AC_UL200_SR200,200_.jpg"></a>
+                    <h3 class="name"><strong>Plant Over Processed: 75 Simple &amp; Delicious Plant-Based Recipes for
+                            Nourishing Your Body and Eating From the Earth</strong><br></h3>
+                    <p class="description">Andrea Hannermann</p><a class="action" href="#"><i
+                            class="fa fa-arrow-circle-right"></i></a>
+                </div>
+                <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid"
+                            src="assets/img/71RaWOxHXPL._AC_UL200_SR200,200_.jpg"></a>
+                    <h3 class="name"><strong>The Dark Secret (Wings of Fire Graphic Novel #4): A Graphix Book
+                            (4)&nbsp;</strong><br></h3>
+                    <p class="description"><strong>Tui T. Sutherland</strong><br></p><a class="action" href="#"><i
+                            class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-dark" style="background-color: rgb(183,183,183);color: rgb(0,0,0);">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 col-lg-4 item">
+                        <h3>Shop</h3>
+                        <ul>
+                            <li></li>
+                            <li><a href="explore.html">Explore books</a></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-4 item">
+                        <h3>Payment</h3>
+                        <ul>
+                            <li><a href="methodsofpayment.html">Methods of Payment&nbsp;</a></li>
+                            <li><a href="tokensystem.html">How our credit system works</a></li>
+                            <li><a href="buytokens.html">Fill up my wallet</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-4 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="team.html">Team</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="copyright"><strong>Books &amp; Readables © 2020</strong></p>
+            </div>
+        </footer>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/search.js"></script>
+</body>
+
+</html>
