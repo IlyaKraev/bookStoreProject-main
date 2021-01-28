@@ -19,11 +19,15 @@ $(document).ready(function () {
     var removefront = splitusrn.substring(1)
     var username = removefront.slice(0, -1)
 
+
     if ($('body').is('.transactionpage')) {
         var tokenstobuy = localStorage.getItem("quantity", value);
         $('#tokens').text(tokenstobuy);
-        $('#currency').text(tokenstobuy * 0.8);
+        $('#currency').text(tokenstobuy * 0.87);
+
     }
+
+
 
     if ($('body').is('.checkoutpage')) {
         window.addEventListener('load', async function () {
@@ -40,7 +44,7 @@ $(document).ready(function () {
                 type: "GET",
                 contentType: "application/json"
             })
-
+        
             const asd = await book.json();
 
             FormDataJson.setInputValue(document.querySelector("#bookId"), asd.book.bookId);
@@ -54,8 +58,6 @@ $(document).ready(function () {
             $('#productimg').attr('src', "assets/img/books/book-" + asd.book.bookId + ".jpg");
         });
     };
-
-
 
     $("#payment").click(async function (e) {
         e.preventDefault(); //STOP default action
@@ -83,6 +85,7 @@ $(document).ready(function () {
                 const thisorder = await order.json();
                 let last = thisorder.orders.pop();
                 FormDataJson.setInputValue(document.querySelector("#orderId"), last.orderId);
+
                 let data = FormDataJson.formToJson(document.querySelector("#orderdetails"));
                 setTimeout(function () {
                     swal({
@@ -111,70 +114,49 @@ $(document).ready(function () {
                         console.log(invoice.receipt);
                         setTimeout(function () {
                             swal({
-                                title: "Your transaction is complete!",
-                                text: "You purchase is ready. Press 'Download Receipt' to download your receipt!",
+                                title: "Your transaction is complete!!",
+                                text: "You have purchased: " + invoice.receipt.bookTitles + "\ " +
+                                    " Cost: " + invoice.receipt.totalCoins,
                                 type: "success",
-                                showCancelButton: true,
-                                confirmButtonColor: '#ffa767',
-                                confirmButtonText: 'Download Receipt',
-                                cancelButtonColor: '#d33',
-                                cancelButtonText: "Continue without",
-
-                            }
-                                ,
-                                function (isConfirm) {
-                                    if (isConfirm) {
-                                        var obj2 = invoice.receipt
-                                        var doc = new jsPDF();
-                                        doc.autoTable({
-                                            head: [['First Name', 'Last Name', 'Book', 'Original Price', 'Discount', 'Book Price']],
-                                            body: [
-                                                [obj2.firstname, obj2.lastname, obj2.bookTitles, obj2.originalPrice, obj2.discount * 100 + "%", obj2.totalPrices],
-
-                                            ], foot: [['Total Price:', '', '', '', '', obj2.totalCoins]],
-                                        })
-                                        doc.save('BooksAndReadblesReceipt-Order-'+last.orderId+'.pdf');
-                                        window.location.href = "user/userpage.html";
-                                    } else {
-                                        window.location.href = "user/userpage.html";
-                                    }
-                                }
-
-                            );
-                        }, 1000);
-                    },
-                    error: function (jqXHR, textStatus, errorThrown) {
-                        setTimeout(function () {
-                            swal({
-                                title: "Sorry!",
-                                text: "Something is wrong, please try again!",
-                                type: "error",
                                 confirmButtonText: "OK"
                             },
                                 function (isConfirm) {
                                     if (isConfirm) {
-                                        window.location.href = "index.html";
+                                        window.location.href = "user/userpage.html";
                                     }
                                 }
                             );
                         }, 1000);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        setTimeout(function () { 
+                            swal({
+                              title: "Sorry!",
+                              text: "Something is wrong, please try again!",
+                              type: "error",
+                              confirmButtonText: "OK"
+                            },
+                            function(isConfirm){
+                              if (isConfirm) {
+                                window.location.href = "index.html";
+                              }}
+                            ); }, 1000);
                     }
                 });
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                setTimeout(function () {
+                setTimeout(function () { 
                     swal({
-                        title: "Sorry!",
-                        text: "Something is wrong, please try again!",
-                        type: "error",
-                        confirmButtonText: "OK"
+                      title: "Sorry!",
+                      text: "Something is wrong, please try again!",
+                      type: "error",
+                      confirmButtonText: "OK"
                     },
-                        function (isConfirm) {
-                            if (isConfirm) {
-                                window.location.href = "index.html";
-                            }
-                        });
-                }, 1000);
+                    function(isConfirm){
+                      if (isConfirm) {
+                        window.location.href = "index.html";
+                      }
+                    }); }, 1000);
             }
         });
 
@@ -188,32 +170,32 @@ $(document).ready(function () {
         document.getElementById("v10").addEventListener("click", function () {
             value = 10;
             $('#total').text(value);
-            $('#currency').text(value * 0.8);
+            $('#currency').text(value * 0.87);
         });
         document.getElementById("v20").addEventListener("click", function () {
             value = 20;
             $('#total').text(value);
-            $('#currency').text(value * 0.8);
+            $('#currency').text(value * 0.87);
         });
         document.getElementById("v50").addEventListener("click", function () {
             value = 50;
             $('#total').text(value);
-            $('#currency').text(value * 0.8);
+            $('#currency').text(value * 0.87);
         });
         document.getElementById("v100").addEventListener("click", function () {
             value = 100;
             $('#total').text(value);
-            $('#currency').text(value * 0.8);
+            $('#currency').text(value * 0.87);
         });
         document.getElementById("v200").addEventListener("click", function () {
             value = 200;
             $('#total').text(value);
-            $('#currency').text(value * 0.8);
+            $('#currency').text(value * 0.87);
         });
         document.getElementById("v500").addEventListener("click", function () {
             value = 500;
             $('#total').text(value);
-            $('#currency').text(value * 0.8);
+            $('#currency').text(value * 0.87);
         });
 
 

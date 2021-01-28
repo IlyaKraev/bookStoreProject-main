@@ -7,26 +7,20 @@ $(document).ready(function () {
                 if (!jsonData[this.name].push) {
                     jsonData[this.name] = [jsonData[this.name]];
                 }
-
                 jsonData[this.name].push(this.value);
             } else {
                 jsonData[this.name] = this.value;
             }
         });
-        console.log(jsonData)
         var username = document.getElementById("username").value
         var psw = document.getElementById("txtpassword").value
         var pswconfirm = document.getElementById("txtConfirmPassword").value
 
         var guesttoken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJbUk9MRV9VU0VSXHJcbl0iLCJleHAiOjE2MTIyMDIyMjJ9.clBy4JZW1yZTWehWQULxx3go8PnkDQxfvWFr9jR4SW4-aK8SLB0CnB6Dx9bsyLHPQN26i0GhoNsJxH-A4YaEQg"
 
-
-
-        console.log(jsonData)
-        console.log(psw + " " + pswconfirm)
         if (psw === pswconfirm) {
             $.ajax({
-                url: "http://localhost:8081/api/account/new",
+                url: "http://ra1.anystream.eu:1090/bookstore/api/account/new",
                 headers: { "Authorization": "Bearer " + guesttoken },
                 type: "POST",
                 dataType: "text",
@@ -34,12 +28,33 @@ $(document).ready(function () {
                 cache: false,
                 data: JSON.stringify(jsonData),
                 success: function (res) {
-                    console.log(res)
-                    alert("Welcome " + username + " you have successfully registered ");
-                    window.location.href = "index.html";
+                  console.log(res)
+                  setTimeout(function () { 
+                    swal({
+                      title: "Welcome!",
+                      text: "You have successfully registered! Press ok to log in!",
+                      type: "success",
+                      confirmButtonText: "OK"
+                    },
+                    function(isConfirm){
+                      if (isConfirm) {
+                        window.location.href = "login.html";
+                      }
+                    }); }, 1000);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert("error")
+                    setTimeout(function () { 
+                        swal({
+                          title: "Sorry!",
+                          text: "Something is wrong, please try again!",
+                          type: "error",
+                          confirmButtonText: "OK"
+                        },
+                        function(isConfirm){
+                          if (isConfirm) {
+                            window.location.href = "login.html";
+                          }
+                        }); }, 1000);
                     console.log(jqXHR)
                     console.log(textStatus)
                     console.log(errorThrown)
@@ -49,8 +64,6 @@ $(document).ready(function () {
             alert("Please insert the correct confirm password!")
         }
         e.preventDefault(); //STOP default action
-
     });
-
 });
 

@@ -5037,7 +5037,7 @@ img.center {
     background: #269d9d
 }
 
-@media (min-width:768px) {
+@media (min-width:900px) {
     .navigation-clean, .navigation-clean-button, .navigation-clean-search {
         padding-top: 1rem;
         padding-bottom: 1rem
@@ -5263,6 +5263,25 @@ img.center {
     }
 }
 
+.profilebook{
+    width: 100%; 
+    height: auto;
+}
+
+
+@media only screen and (max-width:500px) {
+    .product-grid7 {
+        margin-bottom: 30px;
+    }
+    .product-grid7 .product-image7 img {
+        max-height: 500px;
+    }
+    .product-grid7 .product-image7 {
+        height: auto;
+    }
+
+}
+
 .shopping-grid {
     margin-top: 10px;
     width: 100%;
@@ -5276,17 +5295,35 @@ img.center {
     padding-top: 40px;
 }
 
-
-#bookscontainer{
+#bookscontainer {
     margin-left: 200px;
     margin-right: 100px;
 }
 
 @media only screen and (max-width:700px) {
-    #bookscontainer{
+    #bookscontainer {
         margin-left: 0;
         margin-right: 0;
     }
-
-
+}
+  
+  #wp {
+    position: fixed;
+    z-index: 100;
+    height: 60px;
+    width: 60px;
+    right: 40px;
+    bottom: 40px;
+    border-radius: 50px;
+    background-color: rgb(255,167,103);
+    font-size: 30px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+    color: #FFF;
+  }
+  
+  #wp:hover {
+    color: rgb(255,167,103);
+    text-decoration: none;
+    background-color: white;
 }

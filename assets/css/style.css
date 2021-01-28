@@ -1,3 +1,25 @@
 #logout {
-    display:none;
+    display: none;
 }
+
+#exploration div ul li a {
+    text-decoration: none;
+    color: #ff8d3b;
+    font-weight: bold;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+#exploration div ul li:hover {
+    background-color: rgb(255, 167, 103);
+}
+
+#exploration div ul li:hover a {
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color:rgba(0, 0, 0, 0.1);
+}
+

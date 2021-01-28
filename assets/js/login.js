@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function () { 
     $("#loginBtn").click(function (e) {
         console.log("works")
         var jsonData = {};
@@ -9,36 +9,63 @@ $(document).ready(function () {
                 if (!jsonData[this.name].push) {
                     jsonData[this.name] = [jsonData[this.name]];
                 }
-
                 jsonData[this.name].push(this.value);
             } else {
                 jsonData[this.name] = this.value;
             }
 
         });
-        var username = document.getElementById("username").value
 
-        console.log(jsonData)
-        console.log(JSON.stringify(jsonData))
         $.ajax({
-            url: "http://localhost:8081/login",
+            url: "http://ra1.anystream.eu:1090/bookstore/login",
             type: "POST",
             dataType: "text",
             contentType: "application/json; charset=UTF-8",
             cache: false,
             data: JSON.stringify(jsonData),
             success: function (res) {
-
                 console.log(res)
                 localStorage.setItem("token", res)
-                localStorage.setItem("username", username)
-                alert("Welcome " + username + " you have successfully logged in press ok to continue ");
-                if (username === "admin") { localStorage.setItem("auth", "ready") }
-                window.location.href = "index.html";
+                setTimeout(function () { 
+                    swal({
+                      title: "Welcome!",
+                      text: "You have successfully logged in press ok to continue!",
+                      type: "success",
+                      confirmButtonText: "OK"
+                    },
+                    function(isConfirm){
+                      if (isConfirm) {
+                        window.location.href = "index.html";
+                      }
+                    }); }, 1000);
+                var base64Url = res.split('.')[1];
+                var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                var roleCheck = decodeURIComponent(atob(base64).split('').map(function (c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
+                console.log(roleCheck)
+                if (roleCheck.includes("ROLE_ADMIN")) {
+                    localStorage.setItem("auth", "ready")
+                    console.log("works auth ready!")
+                } else if (roleCheck.includes("ROLE_USER")) {
+                    localStorage.setItem("auth", "client")
+                    console.log("works auth client!")
+                }
 
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                alert("error")
+                setTimeout(function () { 
+                    swal({
+                      title: "Sorry!",
+                      text: "Something is wrong, please try again!",
+                      type: "error",
+                      confirmButtonText: "OK"
+                    },
+                    function(isConfirm){
+                      if (isConfirm) {
+                        window.location.href = "login.html";
+                      }
+                    }); }, 1000);
                 console.log(jqXHR)
                 console.log(textStatus)
                 console.log(errorThrown)
