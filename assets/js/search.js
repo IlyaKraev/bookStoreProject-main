@@ -144,7 +144,6 @@ $(document).ready(function () {
                 </a>
                 <ul class="social">
                 <li><a href="book.html?id=${match.bookId}" class="fa fa-search"></a></li>
-                <li><a href="" class="fa fa-shopping-cart"></a></li>
                 </ul>
                 </div>
                 <div class="product-content">

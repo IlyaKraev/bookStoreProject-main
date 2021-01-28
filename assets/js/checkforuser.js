@@ -118,7 +118,7 @@ $(document).ready(function () {
         $('#special').remove();
         localStorage.clear();
         location.reload();
-        window.location.href = "index.html";
+        window.location.href = "/";
     };
 
 
