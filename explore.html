@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Explore</title>
+    <title>BookStore</title>
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <script src="assets/js/jquery.min.js"></script>
     <script src="/assets/js/checkforuser.js"></script>
+
 
 </head>
 
@@ -25,84 +28,101 @@
                     class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav mr-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link " href="index.html">Home</a></li>
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
-                            aria-expanded="false"  href="#">Explore</a>
+                            aria-expanded="false" href="#">Explore</a>
                         <div class="dropdown-menu" role="menu" style="background-color: rgba(183,183,183,0.86);"><a
-                                class="dropdown-item" role="presentation" href="view.html?allbooks"><strong>All books</strong></a><a
-                                class="dropdown-item  active" role="presentation"  active href="explore.html"><strong>Filter</strong></a>
+                                class="dropdown-item" role="presentation" href="view.html?allbooks"><strong>All
+                                    books</strong></a><a class="dropdown-item" role="presentation"
+                                href="explore.html"><strong>Filter</strong></a>
                         </div>
                     </li>
-                    <li class="nav-item" role="presentation"></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                            aria-expanded="false" href="#">About Us</a>
+                        <div class="dropdown-menu" role="menu" style="background-color: rgba(183,183,183,0.86);">
+                            <a class="dropdown-item" role="presentation" href="methodsofpayment.html"><strong>Methods of Payment</strong></a>
+                            <a class="dropdown-item" role="presentation" href="tokensystem.html"><strong>How our token system works</strong></a>
+                            <a class="dropdown-item" role="presentation" href="buytokens.html"><strong>Fill up my wallet</strong></a>
+                        </div>
+                    </li>
                 </ul>
-                <form class="text-center" name="">
-                    <div class="form-inline mr-auto">
+                <form class="text-center" style="position: static;">
+                    <div class="form-inline mr-auto ">
                         <label for="search-field">
-                            <button type="submit" id="go-min" href="" class="btn btn-default" style="background-color: rgb(255,167,103)">
+                            <button type="submit" id="go-min" href="" class="btn btn-default"
+                                style="background-color: rgb(255,167,103)">
                                 <i class="fa fa-search" style="color: rgb(0,0,0);padding: 6px;"></i>
                             </button>
-                            <input class="form-control search-field" type="search" id="search-min" name="search">
+                            <input class="form-control search-field " type="search" id="search-min" name="search">
                         </label>
                     </div>
                 </form>
-                <span class="navbar-text actions"> <a class="login" id="loginBox" href="login.html">Log In</a><a
-                        class="btn btn-light action-button" id="signupBox" role="button" href="register.html"
-                        style="background-color: rgb(255,167,103);">Sign Up</a></span>
-                <!-- <div id="showUsr"></div>
-                            <br /> -->
-                <div id="userinfo" class="ml-5"></div>
-                <button class="btn btn-danger ml-2" style="float: right" id="logout"> Log
+                <span class="navbar-text actions" style="margin-left: 10px;"> <a class="login" id="loginBox"
+                        href="login.html">Log In</a><a class="btn btn-light action-button" id="signupBox" role="button"
+                        href="register.html" style="background-color: rgb(255,167,103);">Sign Up</a></span>
+
+                <div id="userinfo" class="ml-5 sm-6"></div>
+                <button class="btn btn-danger ml-2 sm-6" id="logout"> Log
                     Out</button>
             </div>
         </div>
     </nav>
     <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <i class="fa fa-user-circle" aria-hidden="true" style="float: left; position: relative; top: 7px; right: 5px"></i><h5 class="modal-title" id="exampleModalLabel"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p> Here you can see your profile info</p>
-                <p id="walletcoins"></p>
-                <p><a href="moneytocoins.html">Recharge your coins!</a></p>
-                <p><a href="user/purchasehistory.html">Purchase history</a></p>
-            </div>
-            <div id="special" style="text-align: center"></div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <i class="fa fa-user-circle" aria-hidden="true"
+                        style="float: left; position: relative; top: 7px; right: 5px"></i>
+                    <h5 id="modalheader"></h5>
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p> Here you can see your profile info</p>
+                    <p id="walletcoins"></p>
+                    <p><a href="user/userpage.html">View your account <i class="fa fa-gear"></i></a></p>
+                    <p><a href="buytokens.html">Recharge your tokens! <i class="fa fa-bullseye"></i></a></p>
+                </div>
+                <div id="special" style="text-align: center"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
     <div class="article-list">
         <div class="container">
             <div class="intro">
                 <h2 class="text-center">Explore</h2>
-                <h3 class="text-center"><a href="#" style="color: #ffa767;">View all books</a></h3>
+                <h3 class="text-center"><a href="view.html?allbooks" style="color: #ffa767;">View all books</a></h3>
                 <p class="text-center">Or choose one of the filters below</p>
             </div>
-            <div class="row articles">
-                <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" style="width: 200px; height: 200px" src="assets/img/author.png"></a>
+            <div id="exploration" class="row articles">
+                <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid"
+                            style="width: 200px; height: 200px" src="assets/img/author.png"></a>
                     <h3 class="name">Books by author:</h3>
                     <ul id="author" class="list-group">
 
-                    </ul></div>
-                <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" style="width: 200px; height: 200px" src="assets/img/categories.png"></a>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid"
+                            style="width: 200px; height: 200px" src="assets/img/categories.png"></a>
                     <h3 class="name">Category:</h3>
                     <ul id="category" class="list-group">
-                    </ul></div>
-                <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" style="width: 200px; height: 200px" src="assets/img/language.png"></a>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid"
+                            style="width: 200px; height: 200px" src="assets/img/language.png"></a>
                     <h3 class="name">Language:</h3>
                     <ul id="language" class="list-group">
-                    </ul></div>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -145,4 +165,3 @@
 </body>
 
 </html>
-

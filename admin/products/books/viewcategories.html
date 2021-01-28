@@ -14,144 +14,135 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+    <script src="../../../assets/js/checkauthinadmintier3.js"></script>
     <script src="../../../assets/js/checkforuser.js"></script>
 </head>
 
 <body>
     <nav class="navbar navbar-light navbar-expand-lg navigation-clean-button"
-        style="background-color: rgb(183,183,183);">
-        <div class="container-fluid"><a class="navbar-brand" href="../../../index.html"><img
-                    src="../../../assets/img/logo.png" style="height: auto;width: 50px;">Books
-                &amp; Readables</a>
-            <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle
-                    navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav mr-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
-                            aria-expanded="false" href="#">Explore</a>
-                        <div class="dropdown-menu" role="menu" style="background-color: rgba(183,183,183,0.86);"><a
-                                class="dropdown-item" role="presentation" href="#"><strong>Free</strong></a><a
-                                class="dropdown-item" role="presentation" href="#"><strong>Category 1</strong></a><a
-                                class="dropdown-item" role="presentation" href="#"><strong>Category 2</strong></a>
-                            <a class="dropdown-item" role="presentation" href="#"><strong>Category 3</strong></a>
-                        </div>
-                    </li>
-                    <li class="nav-item" role="presentation"></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Contact Us</a></li>
-                </ul>
-                <form class="form-inline mr-auto" name="">
-                    <div class="form-group"><label for="search-field">
-                            <button type="submit" id="go-min" href="" class="btn btn-default"
-                                style="background-color: rgb(255,167,103)"><i class="fa fa-search"
-                                    style="color: rgb(0,0,0);padding: 6px;"></i></button>
-                        </label><input class="form-control search-field" type="search" id="search-min" name="search">
+    style="background-color: rgb(183,183,183);">
+    <div class="container-fluid"><a class="navbar-brand" href="../../../index.html"><img src="../../../assets/img/logo.png"
+                style="height: auto;width: 50px;">Books &amp; Readables</a><button data-toggle="collapse"
+            class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="nav navbar-nav mr-auto">
+                <li class="nav-item" role="presentation"><a class="nav-link" href="../../../index.html">Home</a></li>
+                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                        aria-expanded="false" href="#">Explore</a>
+                    <div class="dropdown-menu" role="menu" style="background-color: rgba(183,183,183,0.86);"><a
+                            class="dropdown-item" role="presentation" href="../../../view.html?allbooks"><strong>All
+                                books</strong></a><a class="dropdown-item" role="presentation"
+                            href="../../../explore.html"><strong>Filter</strong></a>
                     </div>
-                </form>
-                <span class="navbar-text actions"> <a class="login" id="loginBox" href="login.html">Log In</a><a
-                        class="btn btn-light action-button" id="signupBox" role="button" href="register.html"
-                        style="background-color: rgb(255,167,103);">Sign Up</a></span>
-            </div>
+                </li>
+                <li class="nav-item" role="presentation"></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="../../contact.html">Contact Us</a>
+                </li>
+            </ul>
 
-            <div id="showUsr"></div>
-            <br />
+            <span class="navbar-text actions"> <a class="login" id="loginBox" href="../../../login.html">Log In</a><a
+                    class="btn btn-light action-button" id="signupBox" role="button" href="../../../register.html"
+                    style="background-color: rgb(255,167,103);">Sign Up</a></span>
             <div id="userinfo" class="ml-5"></div>
-            <div id="special"></div>
-            <button class="btn btn-danger ml-2" id="logout"> Log
-                Out
-            </button>
+            <button class="btn btn-danger ml-2" style="float: right" id="logout"> Log
+                Out</button>
         </div>
-    </nav>
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean"
-        style="background-color: rgba(255,167,103,0.57);">
-        <div class="container"><a class="navbar-brand" href="#">Admin Panel</a>
-            <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle
-                    navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">First Item</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Second Item</a></li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
-                            aria-expanded="false" href="vieworders.html">Orders</a>
-                        <div class="dropdown-menu" role="menu" style="background-color: rgb(217,192,174);"><a
-                                class="dropdown-item" role="presentation" href="../../orders/vieworders.html">View</a><a
-                                class="dropdown-item" role="presentation" href="../../orders/neworder.html">Add
-                                new</a><a class="dropdown-item" role="presentation"
-                                href="../../orders/vieworders.html">Update</a><a class="dropdown-item"
-                                role="presentation" href="../../orders/vieworders.html">Delete</a>
-                            <div class="dropdown-divider" role="presentation"></div>
-                            <span class="dropdown-item-text" role="presentation"><strong>Order
-                                    Details</strong></span><a class="dropdown-item" role="presentation"
-                                href="../../orders/vieworders.html">View</a><a class="dropdown-item" role="presentation"
-                                href="../../orders/neworder.html">Add new</a>
-                            <a class="dropdown-item" role="presentation"
-                                href="../../orders/vieworders.html">Update</a><a class="dropdown-item"
-                                role="presentation" href="../../orders/vieworders.html">Delete</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
-                            aria-expanded="false" href="../../users/viewaccounts.html">Users</a>
-                        <div class="dropdown-menu" role="menu" style="background-color: rgb(217,192,174);"><a
-                                class="dropdown-item" role="presentation"
-                                href="../../users/viewaccounts.html">View</a><a class="dropdown-item"
-                                role="presentation" href="../../users/newrole.html">Add
-                                new</a><a class="dropdown-item" role="presentation"
-                                href="../../users/viewaccounts.html">Update</a><a class="dropdown-item"
-                                role="presentation" href="../../users/viewaccounts.html">Delete</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
-                            aria-expanded="false" href="../../pricing/viewpricings.html">Pricings</a>
-                        <div class="dropdown-menu" role="menu" style="background-color: rgb(217,192,174);"><a
-                                class="dropdown-item" role="presentation"
-                                href="../../pricing/viewpricings.html">View</a><a class="dropdown-item"
-                                role="presentation" href="../../pricing/updatepricing.html">Add
-                                new</a><a class="dropdown-item" role="presentation"
-                                href="../../pricing/updatepricing.html">Update</a><a class="dropdown-item"
-                                role="presentation" href="../../pricing/updatepricing.html">Delete</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
-                            aria-expanded="false" href="viewbooks.html">Books</a>
-                        <div class="dropdown-menu" role="menu" style="background-color: rgb(217,192,174);"><a
-                                class="dropdown-item" role="presentation" href="viewbooks.html">View
-                                Existing</a><a class="dropdown-item" role="presentation" href="newbook.html">Add
-                                new</a><a class="dropdown-item" role="presentation" href="updatebook.html">Update</a><a
-                                class="dropdown-item" role="presentation" href="updatebook.html">Delete</a>
-                            <div class="dropdown-divider" role="presentation"></div>
-                            <a class="dropdown-item" role="presentation"
-                                href="viewcategories.html"><strong>Categories</strong></a>
-                            <a class="dropdown-item" role="presentation" href="viewcategories.html">View</a>
-                            <a class="dropdown-item" role="presentation" href="newcategory.html">Add</a>
-                            <div class="dropdown-divider" role="presentation"></div>
-                            <span class="dropdown-item-text" role="presentation"><strong>Language</strong></span>
-                            <a class="dropdown-item" role="presentation" href="viewlanguages.html">View</a>
-                            <a class="dropdown-item" role="presentation" href="viewlanguages.html">Add</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
-                            aria-expanded="false" href="../publishers/viewpublishers.html">Publishers</a>
-                        <div class="dropdown-menu" role="menu" style="background-color: #d9c0ae;"><a
-                                class="dropdown-item" role="presentation" href="../publishers/viewpublishers.html">View
-                                Existing</a><a class="dropdown-item" role="presentation"
-                                href="../publishers/newpublisher.html">Add New</a><a class="dropdown-item"
-                                role="presentation" href="../publishers/updatepublisher.html">Update</a><a
-                                class="dropdown-item" role="presentation"
-                                href="../publishers/updatepublisher.html">Delete</a></div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
-                            aria-expanded="false" href="viewauthors.html">Authors</a>
-                        <div class="dropdown-menu" role="menu" style="background-color: #d9c0ae;"><a
-                                class="dropdown-item" role="presentation" href="../authors/viewauthors.html">View
-                                Existing</a><a class="dropdown-item" role="presentation"
-                                href="../authors/newauthor.html">Add New</a><a class="dropdown-item" role="presentation"
-                                href="../authors/updateauthor.html">Update</a><a class="dropdown-item"
-                                role="presentation" href="../authors/updateauthor.html">Delete</a></div>
-                    </li>
-                </ul>
+    </div>
+</nav>
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fa fa-user-circle" aria-hidden="true"
+                    style="float: left; position: relative; top: 7px; right: 5px"></i>
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p> Here you can see your profile info</p>
+                <p id="walletcoins"></p>
+                <p><a href="../moneytocoins.html">Recharge your coins!</a></p>
+                <p><a href="../user/purchasehistory.html">Purchase history</a></p>
+            </div>
+            <div style="text-align: center"><p><a href="dashboard.html">Press here to see the admin dashboard</a></p></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
-    </nav>
+    </div>
+</div>
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background-color: rgba(255,167,103,0.57);">
+    <div class="container"><a class="navbar-brand" href="../../dashboard.html">Admin Panel</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse"
+            id="navcol-1">
+            <ul class="nav navbar-nav ml-auto">
+                <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="#">First Item</a></li> -->
+                <li class="nav-item" role="presentation"><a class="nav-link" href="../../viewpurchasehistory.html">Purchase History</a></li>
+                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                    aria-expanded="false" href="#">Orders</a>
+                <div class="dropdown-menu" role="menu" style="background-color: rgb(217,192,174);">
+                    <a class="dropdown-item" role="presentation" href="../../orders/vieworders.html">View</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                    aria-expanded="false" href="#">Users</a>
+                <div class="dropdown-menu" role="menu" style="background-color: rgb(217,192,174);">
+                    <a class="dropdown-item" role="presentation" href="../../users/viewaccounts.html">View</a>
+                    <div class="dropdown-divider" role="presentation"></div>
+                    <span class="dropdown-item-text" role="presentation"><strong>Roles</strong></span>
+                    <a class="dropdown-item" role="presentation" href="../../users/viewroles.html">View</a>
+                    <a class="dropdown-item" role="presentation" href="../../users/newrole.html">Add</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                    aria-expanded="false" href="#">Pricings</a>
+                <div class="dropdown-menu" role="menu" style="background-color: rgb(217,192,174);">
+                    <a class="dropdown-item" role="presentation" href="../../pricing/viewpricings.html">View</a>
+                    <a class="dropdown-item" role="presentation" href="../../pricing/newpricing.html">Add</a>
+
+                </div>
+            </li>
+            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                    aria-expanded="false" href="#">Books</a>
+                <div class="dropdown-menu" role="menu" style="background-color: rgb(217,192,174);"><a
+                        class="dropdown-item" role="presentation" href="viewbooks.html">View</a>
+                    <a class="dropdown-item" role="presentation" href="newbook.html">Add</a>
+
+                    <div class="dropdown-divider" role="presentation"></div>
+                    <a class="dropdown-item" role="presentation" href="#"><strong>Categories</strong></a>
+                    <a class="dropdown-item" role="presentation" href="viewcategories.html">View</a>
+                    <a class="dropdown-item" role="presentation" href="newcategory.html">Add</a>
+                    <div class="dropdown-divider" role="presentation"></div>
+                    <span class="dropdown-item-text" role="presentation"><strong>Language</strong></span>
+                    <a class="dropdown-item" role="presentation" href="viewlanguages.html">View</a>
+                    <a class="dropdown-item" role="presentation" href="newlanguage.html">Add</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                    aria-expanded="false" href="#">Publishers</a>
+                <div class="dropdown-menu" role="menu" style="background-color: #d9c0ae;">
+                    <a class="dropdown-item" role="presentation" href="../publishers/viewpublishers.html">View</a>
+                    <a class="dropdown-item" role="presentation" href="../publishers/newpublisher.html">Add</a>
+
+                </div>
+            </li>
+            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                    aria-expanded="false" href="#">Authors</a>
+                <div class="dropdown-menu" role="menu" style="background-color: #d9c0ae;">
+                    <a class="dropdown-item" role="presentation" href="../authors/viewauthors.html">View</a>
+                    <a class="dropdown-item" role="presentation" href="../authors/newauthor.html">Add</a>
+                </div>
+            </li>
+            </ul>
+        </div>
+    </div>
+</nav>
     <div class="container">
         <h2 class="text-center">Categories</h2>
 
@@ -181,28 +172,20 @@
         <footer>
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-6 col-md-3 item">
+                    <div class="col-sm-6 col-md-6 col-lg-6 item">
                         <h3>Shop</h3>
                         <ul>
-                            <li><a href="#">Free books</a></li>
-                            <li><a href="#">Explore books</a></li>
-                            <li><a href="#">Comics &amp; manga</a></li>
+                            <li></li>
+                            <li><a href="../../../explore.html">Explore books</a></li>
+                            <li></li>
                         </ul>
                     </div>
-                    <div class="col-sm-6 col-md-3 item">
+                    <div class="col-sm-6 col-md-3 col-lg-4 item">
                         <h3>Payment</h3>
                         <ul>
-                            <li><a href="#">Methods of Payment&nbsp;</a></li>
-                            <li><a href="#">How our credit system works</a></li>
-                            <li><a href="#">Fill up my wallet</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>About</h3>
-                        <ul>
-                            <li><a href="#">Company</a></li>
-                            <li><a href="#">Team</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="../../../methodsofpayment.html">Methods of Payment&nbsp;</a></li>
+                            <li><a href="../../../tokensystem.html">How our credit system works</a></li>
+                            <li><a href="../../../buytokens.html">Fill up my wallet</a></li>
                         </ul>
                     </div>
                 </div>
